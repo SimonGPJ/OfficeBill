@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/d7f4afabc2.js" crossorigin="anonymous"></script>
+  <script>
+    const usuario = localStorage.getItem("nombreUsuario");
+
+    if (!usuario) {
+        window.location.href = "../views/login.html";
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <p> Inicio</p>
+    </header>
+    <div class="menu">
+    <div class="logo">
+        <img src="../assets/img/descarga.png" alt="">
+    </div>
+    <div class="optionsMenu">
+        <div class="option">
+             
+     <i class="fa-solid fa-house"></i>
+         <i class="selected"></i>
+
+ <a href="./menu.html"> <h4>Inicio</h4>
+ </a> 
+ </div>
+ <div class="option">
+    <i class="fa-solid fa-file-invoice" title="Inicio"></i> 
+    <a href="../views/generateInvoice.html"><h4>Generar Factura</h4>
+ </a>
+ </div>
+ <div class="option">
+     <i class="fa-solid fa-business-time" title="Facturas generadas"></i>
+ <a href="./views/viewInvoice.html"><h4>Facturas generadas</h4>
+ </a>
+ </div>
+ <div class="option">
+     <i class="fa-solid fa-circle-user" title="Perfil"></i>
+ <a href="../views/profile.html"><h4>Perfil</h4>
+ </a>
+ </div>
+ <div class="option">
+ <i class="fa-solid fa-users" title="Soporte"></i>
+ <a href="../views/support.html"> <h4>Soporte</h4>
+ </a>
+ </div>
+</div>
+</div>
+<main>
+   <h2 id="bienvenida"></h2>
+    <script>
+        const nombre = localStorage.getItem("nombreUsuario");
+        document.getElementById("bienvenida").textContent = "Bienvenido " + nombre;
+    </script>
+
+   <section>
+<div class="estadisticas">
+    <div class="card">
+        <h1 id="ultimas-24">0</h1>
+        <p>Facturas generadas</p>
+        <span>Últimas 24 horas</span>
+    </div>
+
+    <div class="card">
+        <h1 id="ultimo-mes">0</h1>
+        <p>Facturas generadas</p>
+        <span>Último mes</span>
+    </div>
+
+    <div class="card">
+        <h1 id="total-facturas">0</h1>
+        <p>Total de facturas</p>
+        <span>Siempre</span>
+    </div>
+
+    <div class="card">
+        <h1 id="incompletas">0</h1>
+        <p>Facturas incompletas</p>
+        <span>Siempre</span>
+    </div>
+    </div>
+</section>
+ <script class="resumen">
+            const facturas = JSON.parse(localStorage.getItem("facturas")) || [];
+
+            // siempre
+            document.getElementById("total-facturas").textContent = facturas.length;
+
+            // Últimas 24h
+            const hace24H = Date.now() - (24 * 60 * 60 * 1000);
+            const ultimas24 = facturas.filter(f => new Date(f.fecha).getTime() > hace24H);
+            document.getElementById("ultimas-24").textContent = ultimas24.length;
+
+            // Último mes
+            const hace1mes = Date.now() - (30 * 24 * 60 * 60 * 1000);
+            const ultimoMes = facturas.filter(f => new Date(f.fecha).getTime() > hace1mes);
+            document.getElementById("ultimo-mes").textContent = ultimoMes .length;
+
+            // Incompletas
+            const incompletas = facturas.filter(f => f.estado === "pendiente");
+            document.getElementById("incompletas").textContent = incompletas.length;
+        </script>
+        <script src="./assets/Js/functions.js"></script>
+<section class="notificaciones">
+    <h2>Notificaciones</h2>
+
+    <div class="filtros">
+        <label>Filtrar por fecha</label>
+        <select>
+            <option>1/05/2025</option>
+            <option>30/04/2025</option>
+            <option>29/04/2025</option>
+        </select>
+
+        <div class="orden">
+            <i class="fa-solid fa-filter"></i> 
+            <span>Más reciente</span>
+        </div>
+    </div>
+
+    <div class="tabla-actualizaciones">
+        <h3>Actualizaciones <a href="#" class="viewall">View All</a></h3>
+
+        <table>
+            <tbody>
+
+                <tr>
+                    <td class="descripcion">
+                        <strong>Cambio centro de costo</strong>
+                        <p>Jan 16, 2024</p>
+                    </td>
+                    <td class="usuario-info">
+                        <div class="icon-circle" style="background:#f06292;">JS</div>
+                        <span>John Smith</span>
+                    </td>
+                    <td><span class="estado pending">Pending</span></td>
+                </tr>
+
+                <tr>
+                    <td class="descripcion">
+                        <strong>Devolución de factura</strong>
+                        <p>Jan 25, 2024</p>
+                    </td>
+                    <td class="usuario-info">
+                        <div class="icon-circle" style="background:#ffb74d;">MA</div>
+                        <span>Mark Adam</span>
+                    </td>
+                    <td><span class="estado failed">Failed</span></td>
+                </tr>
+
+                <tr>
+                    <td class="descripcion">
+                        <strong>Factura enviada</strong>
+                        <p>Jan 16, 2024</p>
+                    </td>
+                    <td class="usuario-info">
+                        <div class="icon-circle" style="background:#90caf9;">US</div>
+                        <span>Usuario 1</span>
+                    </td>
+                    <td><span class="estado success">Success</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</main>
+</body>
+
+</html>

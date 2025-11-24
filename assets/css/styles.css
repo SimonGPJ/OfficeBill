@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    text-decoration: none;
+    font-family: 'open sans', sans-serif ;
+}
+body{
+    margin-left: 80px;
+    margin-top: 80px;
+}
+main {
+    margin-left: 15%;
+    padding: 20px;
+}
+header{
+    width: 100%;
+    height: 80px;
+    background: #e6e5e5ad;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+header p{
+    margin-left: 50%;
+
+}
+.icon_menu{
+  width: 40px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(10pxS);
+}
+.menu{
+    width: px;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: rgb(56, 34, 170);
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    border-right: 1px solid rgb(164, 161, 161);
+}
+.logo{
+    padding: 50px  ;
+    display: flex;
+    align-items: center;
+    margin-top: 2px ;
+}
+.logo img{
+    width:120px;
+    margin-right: 20px;
+}
+
+.optionsMenu{
+    padding: 90px 30px;
+    position: absolute;
+    top: 100px;
+}
+.optionsMenu a{
+    color: rgb(59, 42, 191);
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+.optionsMenu a:hover{
+    color: rgb(127, 122, 122);
+}
+.optionsMenu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.optionsMenu .option i{
+    width: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.optionsMenu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+ }
+a.selected{
+    color: white;
+}
+.selected:before{
+ content: '';
+ width: 4px;
+ height: 80%;
+ background: rgb(59, 42, 191) ;
+ position: absolute;
+ top: 10%;
+ left: -30px;
+}
+.contenedor1{
+    display: flex;
+}
+.contenedor1.txt1{
+     margin: 0px 15px;
+}
+.estadisticas {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto; /* CENTRA TODO */
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.card span {
+    color: gray;
+    font-size: 14px;
+}
+.notificaciones {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.notificaciones h2 {
+    margin-bottom: 20px;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.orden {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.tabla-actualizaciones {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.tabla-actualizaciones h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.viewall {
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.descripcion p {
+    font-size: 12px;
+    color: #777;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.estado {
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.estado.pending {
+    background: #e3f2fd;
+    color: #0277bd;
+}
+
+.estado.failed {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.estado.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+/* Inputs ovalados */
+input[type="text"],
+input[type="number"] {
+    width: 150px;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Botones mejorados */
+button {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #8e8d89;
+    transform: scale(1.05);
+}
+
+/* Botones secundarios */
+button#btnModificar:hover {
+    background-color: #8e8d89;
+}
+
+button#btnExcel:hover {
+    background-color: #8e8d89;
+}
+
+/* Línea de ejemplo */
+.linea-ejemplo {
+    display: block;
+    font-size: 13px;
+    color: #777;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.datos{
+    display: flex;
+    margin-top: px;
+}

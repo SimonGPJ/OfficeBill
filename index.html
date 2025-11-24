@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    <h2>Iniciar sesión</h2>
+
+    <input type="text" id="usuario" placeholder="Ingresa tu nombre">
+    <button onclick="iniciarSesion()">Entrar</button>
+
+    <script>
+        function iniciarSesion() {
+            const nombre = document.getElementById("usuario").value;
+
+            localStorage.setItem("nombreUsuario", nombre);
+
+            window.location.href = "./views/menu.html";
+        }
+    </script>
+</body>
+</html>
