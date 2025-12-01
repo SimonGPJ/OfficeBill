@@ -46,54 +46,88 @@
 </div>
 </div>
 <main>
-            <!-- NUEVA TABLA COMPLETA -->
-            <h2>Detalles de la factura</h2>
+    <h2>Agregar datos</h2>
 
-            <table border="1" class="tabla-factura" style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                <thead>
-                    <tr>
-                        <th>Centro de costo</th>
-                        <th>Div</th>
-                        <th>Dep</th>
-                        <th>Rubro</th>
-                        <th>Cantidad</th>
-                        <th>Descripción</th>
-                        <th>Vr. unitario</th>
-                        <th>Imp</th>
-                        <th>Sub total</th>
-                        <th>Vr IVA</th>
-                        <th>Vr total</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaBody">
-                    <!-- Las filas nuevas se insertarán aquí con JS -->
-                </tbody>
-            </table>
+  <form id="form">
+    <label>Centro de costo:</label>
+    <input type="number" id="centro" required>
 
-            <br><br>
+    <label>Cantidad:</label>
+    <input type="number" id="cantidad" required>
 
-            <h3>Agregar detalle</h3>
-<div class="datos">
-            <label>Centro de costo: </label>
-            <input type="text" id="centro"><br><br>
+    <label>Descripción:</label>
+    <input type="text" id="descripcion" required>
 
-            <label>Cantidad: </label>
-            <input type="number" id="cantidad"><br><br>
+    <label>Vr. unitario:</label>
+    <input type="number" id="vrUnitario" required>
 
-            <label>Descripción: </label>
-            <input type="text" id="descripcion"><br><br>
+    <button type="submit">Agregar</button>
+    <button >Crear excel</button>
+    <button type="reset">Eliminar</button>
+  </form>
 
-            <label>Vr unitario: </label>
-            <input type="number" id="vrUnitario"><br><br>
+  <h2>Tabla dinámica</h2>
 
-        </div>
-            <button id="btnAgregar" type="button">Agregar a la tabla</button>
-            <button id="btnModificar" type="button">Modificar</button>
+  <table border="1" id="tabla">
+    <thead>
+      <tr>
+        <th>Centro de costo</th>
+        <th>Div</th>
+        <th>Dep</th>
+        <th>Rubro</th>
+        <th>Cantidad</th>
+        <th>Descripción</th>
+        <th>Vr. unitario</th>
+        <th>Imp</th>
+        <th>Sub total</th>
+        <th>Vr IVA</th>
+        <th>Vr total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Filas dinámicas -->
+    </tbody>
+  </table>
 
-            <br><br>
+  <script>
+    const form = document.getElementById("form");
+    const tabla = document.querySelector("#tabla tbody");
 
-            <button id="btnExcel" type="button">Crear Excel</button>
-            </div>
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const centro = document.getElementById("centro").value;
+      const cantidad = Number(document.getElementById("cantidad").value);
+      const descripcion = document.getElementById("descripcion").value;
+      const vrUnitario = Number(document.getElementById("vrUnitario").value);
+
+      // Cálculos
+      const subTotal = cantidad * vrUnitario;
+      const iva = subTotal * 0.19;     // IVA del 19%
+      const total = subTotal + iva;
+
+      // Crear fila
+      const fila = document.createElement("tr");
+      fila.innerHTML = `
+        <td>${centro}</td>
+        <td></td>        <!-- Div vacío -->
+        <td></td>        <!-- Dep vacío -->
+        <td></td>        <!-- Rubro vacío -->
+        <td>${cantidad}</td>
+        <td>${descripcion}</td>
+        <td>${vrUnitario}</td>
+        <td>19%</td>     <!-- Impuesto -->
+        <td>${subTotal.toFixed(2)}</td>
+        <td>${iva.toFixed(2)}</td>
+        <td>${total.toFixed(2)}</td>
+      `;
+
+      tabla.appendChild(fila);
+
+      // Limpiar formulario
+      form.reset();
+    });
+  </script>
 
 
         <script src="../assets/js/main.js"></script>

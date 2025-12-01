@@ -46,7 +46,44 @@
 </div>
 </div>
 <main>
-    <a href="https://colliers.buk.co/employee/workflow/processes">soporte COllIERS</a>
+    
+  
+    <div class="card">
+        <h2>Solicitud de Soporte</h2>
+
+        <form>
+
+            <!-- Título -->
+            <label for="titulo">Título de la solicitud:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Escribe el título">
+
+            <!-- Descripción -->
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe tu solicitud"></textarea>
+
+            <!-- Tipo -->
+            <label for="tipo">Tipo de solicitud:</label>
+            <select id="tipo" name="tipo">
+                <option value="">Seleccione un tipo</option>
+                <option value="tecnico">Problema técnico</option>
+                <option value="facturacion">Facturación</option>
+                <option value="certificados">Certificados</option>
+                <option value="soporte-general">Soporte general</option>
+            </select>
+
+            <!-- Fecha -->
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <!-- Botones -->
+            <div class="buttons">
+                <button type="button">Cancelar</button>
+                <button type="submit">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+    
 </main>
 </body>
 

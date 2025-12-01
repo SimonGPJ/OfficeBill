@@ -284,3 +284,111 @@ button#btnExcel:hover {
     display: flex;
     margin-top: px;
 }
+ .perfil-wrapper {
+        display: flex;
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 600px;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .avatar-section {
+        width: 180px;
+        text-align: center;
+    }
+
+    .avatar-section img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #000000;
+    }
+
+    .avatar-section button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #000000;
+        color: #000000;
+        background: none;
+        cursor: pointer;
+    }
+
+    .info-section {
+        flex: 1;
+        padding-left: 30px;
+    }
+
+    .info-section label {
+        display: block;
+        font-weight: bold;
+        margin-top: 12px;
+    }
+
+    .info-section input {
+        width: 95%;
+        padding: 7px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .acciones {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 25px;
+        gap: 10px;
+    
+    }
+
+    .acciones button {
+        padding: 8px 15px;
+        border: 1px solid #888;
+        background: none;
+        cursor: pointer;
+        background-color:#007bff;
+        border-radius: 4px;
+    }
+     .card {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            margin-bottom: 14px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+          
+            
+        }
+
+        button {
+            padding: 8px 20px;
+            border: 1px solid #888;
+            border-radius: 4px;
+            background: none;
+            cursor: pointer;
+            color: #000000;
+        }
