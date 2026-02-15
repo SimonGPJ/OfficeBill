@@ -1,0 +1,17 @@
+[
+  { "centro": "116", "div": "div-indi", "dep": "d-asse"},
+  { "centro": "117", "div": "div-indi", "dep": "d-cont"},
+  { "centro": "118", "div": "div-indi", "dep": "d-fin" },
+
+  { "centro": "201", "div": "div-corp", "dep": "d-hr"},
+  { "centro": "202", "div": "div-corp", "dep": "d-it" },
+  { "centro": "203", "div": "div-corp", "dep": "d-legal" },
+
+  { "centro": "301", "div": "div-oper", "dep": "d-log"},
+  { "centro": "302", "div": "div-oper", "dep": "d-proy" },
+  { "centro": "303", "div": "div-oper", "dep": "d-mant" },
+
+  { "centro": "401", "div": "div-com", "dep": "d-sales" },
+  { "centro": "402", "div": "div-com", "dep": "d-mark" },
+  { "centro": "403", "div": "div-com", "dep": "d-client" }
+]

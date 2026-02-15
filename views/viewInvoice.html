@@ -46,60 +46,20 @@
 </div>
 </div>
 </body>
-<main>
-    
-    <h2>Resumen de Facturas Generadas</h2>
-<br>
-    <table border="1" cellspacing="0" cellpadding="6">
-        <thead>
-            <tr>
-                <th>Número de factura</th>
-                <th>Fecha</th>
-                <th>Cliente</th>
-                <th>Concepto</th>
-                <th>Valor</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
+<main class="contenedor-facturas">
+<h2>Resumen de Facturas Generadas</h2>
 
-        <tbody>
-            <tr>
-                <td>F-00123</td>
-                <td>2025-11-29</td>
-                <td>Mibanco SA</td>
-                <td>Certificados tributarios ICA</td>
-                <td>$120.000</td>
-                <td>Pagada</td>
-            </tr>
-
-            <tr>
-                <td>F-00124</td>
-                <td>2025-11-29</td>
-                <td>Servicios Vargas</td>
-                <td>Generación de certificado IVA</td>
-                <td>$85.000</td>
-                <td>Pendiente</td>
-            </tr>
-
-            <tr>
-                <td>F-00125</td>
-                <td>2025-11-28</td>
-                <td>Tienda la Esquina</td>
-                <td>Retención en la fuente</td>
-                <td>$60.000</td>
-                <td>Pagada</td>
-            </tr>
-
-            <tr>
-                <td>F-00126</td>
-                <td>2025-11-27</td>
-                <td>Distribuciones Gama</td>
-                <td>Certificado ICA + IVA</td>
-                <td>$200.000</td>
-                <td>Pendiente</td>
-            </tr>
-        </tbody>
-    </table>
-
+<table class="tabla-facturas">
+    <thead>
+        <tr>
+            <th>Nombre de Factura</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody id="cuerpoFacturas">
+    </tbody>
+</table>
+<script src="../assets/Controllers/viewVoice.js"></script>
 </main>
-</html>

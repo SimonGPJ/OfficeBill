@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
 
-    <h2>Iniciar sesión</h2>
+<div class="user">
+    <div class="logo-user">
+     <img src="/assets/img/descarga.png" alt="">
+    </div>
 
-    <input type="text" id="usuario" placeholder="Ingresa tu nombre">
+    <h1>Iniciar sesión</h1>
+
+    <input type="text" id="usuario" placeholder="Usuario">
     <button onclick="iniciarSesion()">Entrar</button>
+</div>
 
-    <script>
-        function iniciarSesion() {
-            const nombre = document.getElementById("usuario").value;
+<script>
+    function iniciarSesion() {
+        const nombre = document.getElementById("usuario").value;
 
-            localStorage.setItem("nombreUsuario", nombre);
-
-            window.location.href = "./views/menu.html";
+        if (nombre.trim() === "") {
+            alert("Por favor ingrese su usuario");
+            return;
         }
-    </script>
+
+        localStorage.setItem("nombreUsuario", nombre);
+        window.location.href = "./views/menu.html";
+    }
+</script>
+
 </body>
 </html>

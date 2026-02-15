@@ -1,90 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Soporte</title>
     <link rel="stylesheet" href="../assets/css/styles.css">
-     <script src="https://kit.fontawesome.com/d7f4afabc2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d7f4afabc2.js" crossorigin="anonymous"></script>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("TU_PUBLIC_KEY"); // <-- aquí tu public key
+})();
+
+document.querySelector("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm("TU_SERVICE_ID", "TU_TEMPLATE_ID", this)
+        .then(function(){
+            alert("Solicitud enviada correctamente ✅");
+        }, function(error){
+            alert("Error al enviar ❌");
+            console.log(error);
+        });
+});
+</script>
+
 <body>
-     <header>
-        <p>Soporte</p>
-    </header>
-    <div class="menu">
+
+<header>
+    <p>Soporte</p>
+</header>
+
+<div class="menu">
     <div class="logo">
         <img src="../assets/img/descarga.png" alt="">
     </div>
+
     <div class="optionsMenu">
+
         <div class="option">
-             
-     <i class="fa-solid fa-house"></i>
- <a href="./menu.html"> <h4>Inicio</h4>
- </a> 
- </div>
- <div class="option">
-    <i class="fa-solid fa-file-invoice" title="Inicio"></i> 
-    <a href="../views/generateInvoice.html"><h4>Generar Factura</h4>
- </a>
- </div>
- <div class="option">
-     <i class="fa-solid fa-business-time" title="Facturas generadas"></i>
- <a href="../views/viewInvoice.html"><h4>Facturas generadas</h4>
- </a>
- </div>
- <div class="option">
-     <i class="fa-solid fa-circle-user" title="Perfil"></i>
- <a href="../views/profile.html"><h4>Perfil</h4>
- </a>
- </div>
- <div class="option">
- <i class="fa-solid fa-users" title="Soporte"></i>
-  <i class="selected"></i>
- <a href="../views/support.html"> <h4>Soporte</h4>
- </a>
- </div>
+            <i class="fa-solid fa-house"></i>
+            <a href="./menu.html"><h4>Inicio</h4></a>
+        </div>
+
+        <div class="option">
+            <i class="fa-solid fa-file-invoice"></i>
+            <a href="../views/generateInvoice.html"><h4>Generar Factura</h4></a>
+        </div>
+
+        <div class="option">
+            <i class="fa-solid fa-business-time"></i>
+            <a href="../views/viewInvoice.html"><h4>Facturas generadas</h4></a>
+        </div>
+
+        <div class="option">
+            <i class="fa-solid fa-circle-user"></i>
+            <a href="../views/profile.html"><h4>Perfil</h4></a>
+        </div>
+
+        <div class="option">
+            <i class="fa-solid fa-users"></i>
+            <i class="selected"></i>
+            <a href="../views/support.html"><h4>Soporte</h4></a>
+        </div>
+
+    </div>
 </div>
-</div>
-<main>
-    
-  
-    <div class="card">
+<main id="soporte-wrapper">
+
+    <div class="card-soporte">
         <h2>Solicitud de Soporte</h2>
 
-        <form>
+        <form id="formSoporte">
 
-            <!-- Título -->
-            <label for="titulo">Título de la solicitud:</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Escribe el título">
+            <label>Título de la solicitud:</label>
+            <input type="text" name="titulo" required>
 
-            <!-- Descripción -->
-            <label for="descripcion">Descripción:</label>
-            <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe tu solicitud"></textarea>
+            <label>Descripción:</label>
+            <textarea name="descripcion" rows="4" required></textarea>
 
-            <!-- Tipo -->
-            <label for="tipo">Tipo de solicitud:</label>
-            <select id="tipo" name="tipo">
+            <label>Tipo de solicitud:</label>
+            <select name="tipo" required>
                 <option value="">Seleccione un tipo</option>
-                <option value="tecnico">Problema técnico</option>
-                <option value="facturacion">Facturación</option>
-                <option value="certificados">Certificados</option>
-                <option value="soporte-general">Soporte general</option>
+                <option value="Problema técnico">Problema técnico</option>
+                <option value="Facturación">Facturación</option>
+                <option value="Certificados">Certificados</option>
+                <option value="Soporte general">Soporte general</option>
             </select>
 
-            <!-- Fecha -->
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha">
+            <label>Fecha:</label>
+            <input type="date" name="fecha" required>
 
-            <!-- Botones -->
-            <div class="buttons">
-                <button type="button">Cancelar</button>
-                <button type="submit">Enviar</button>
+            <div class="btn-group">
+             <button type="button" class="brn-cancel"
+        onclick="window.open('https://colliers.buk.co/workflow/operations/17738/edit_form', '_blank')">
+        Generar Ticket
+    </button>
+                <button type="submit" class="btn-send">Enviar</button>
             </div>
 
         </form>
     </div>
-    
-</main>
-</body>
 
-</html>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="../assets/js/support.js"></script>
